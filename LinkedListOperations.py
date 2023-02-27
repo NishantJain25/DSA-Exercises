@@ -123,7 +123,28 @@ class LinkedList:
             
             itr = itr.next
     
+    def search_iterative(self, value_to_be_searched):
+        #return true if present and false if not
+        if self.head is None:
+            return False
+        
+        itr =  self.head
+        while itr:
+            if itr.data == value_to_be_searched:
+                return True
+            itr = itr.next
+        return False
     
+    def search_recursive(self, value, head):
+        head_node = head
+        if head_node is None:
+            return False
+        
+        if head_node.data == value:
+            return True
+        
+        return self.search_recursive(value, head_node.next)
+
     def print_list(self):
         if self.head is None:
             print('Linked list is empty')
@@ -142,5 +163,5 @@ if __name__ == '__main__':
     
     ll.insert_values(["mango","banana","orange","apple"])
     ll.insert_after_value("grapes","mango")  
-    ll.remove_by_value("apricot")     
+    print(ll.search_recursive("appl", ll.head))
     ll.print_list()
