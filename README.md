@@ -1,2 +1,2 @@
-# Linked-List-Exercises
-Practicing exercises on linked list
+# DSA-Exercises
+Practicing DSA exercises
