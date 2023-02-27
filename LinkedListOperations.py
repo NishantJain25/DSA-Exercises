@@ -84,7 +84,46 @@ class LinkedList:
             count += 1
             itr = itr.next
         
+    def insert_after_value(self, data, value):
+        if self.head is None:
+            print("List is empty")
+            return
+               
+        itr = self.head
+        while itr:
+            if itr.next == None and itr.data != value:
+                print("Value not found")
+                return
+            
+            if itr.data == value:
+                node = Node(data, itr.next)
+                itr.next = node
+                break
+            
+            itr = itr.next
+            
+    def remove_by_value(self, value):
+        if self.head is None:
+            print("List is empty")
+            return
         
+        if self.head.data == value:
+            self.head = self.head.next
+            return
+        
+        itr = self.head
+        while itr:
+            if itr.next is None:
+                print("Value not found")
+                break
+            
+            if itr.next.data == value:
+                itr.next = itr.next.next
+                break
+            
+            itr = itr.next
+    
+    
     def print_list(self):
         if self.head is None:
             print('Linked list is empty')
@@ -102,5 +141,6 @@ if __name__ == '__main__':
     ll = LinkedList()
     
     ll.insert_values(["mango","banana","orange","apple"])
-    ll.insert_at(4,"apricot")       
+    ll.insert_after_value("grapes","mango")  
+    ll.remove_by_value("apricot")     
     ll.print_list()
